@@ -1,12 +1,18 @@
-<?php
+<?php 
+$dsn = 'mysql:dbname=assignment3week;host=localhost';
+$user = 'root';
+$password='';
+$dbh = new PDO($dsn, $user, $password);
+$dbh->query('SET NAMES utf8');
 
+date_default_timezone_set('Asia/Tokyo');
 
+$sql = 'SELECT * FROM `diary`';
+$stmt = $dbh->prepare($sql);
+$stmt->execute();
+$record = $stmt->fetch(PDO::FETCH_ASSOC);
 
-?>
-
-
-
-
+ ?>
 
 <!DOCTYPE html>
 <html>
@@ -21,19 +27,33 @@
 <div class="container">
 	<div class="row">
 		<div class="col-sm-12"><h1 class="header">NxSeed Diary</h1></div>
-			<div class="col-sm-2">
+			<div class="col-sm-3">
 				<div class="main-left">
-					<p class="konnitiwa">こんにちわ、ゲストさん</p>
+						<?php
+						$time = intval(date('H'));
+						if (6 <= $time && $time <= 11) { // 6～11の時間帯のとき ?>
+						<p class="konnitiwa">おはようございます、ゲストさん</p>
+						<?php } elseif (11 <= $time && $time <= 18) { // 11:01〜17:59の時間帯のとき ?>
+						<p class="konnitiwa">こんにちわ、ゲストさん。</p>
+						<?php } else { // それ以外の時間帯のとき ?>
+						<p class="konnitiwa">こんばんわ、ゲストさん。</p>
+						<?php } ?>
 					<hr>
-					<a href="" class="date">2017年8月の日記</a>
+					<div class="date">
+						<a href="">2017年8月の日記</a>
+					</div>
 					<hr>
-					<a href="" class="date">2017年9月の日記</a>
+					<div class="date">
+						<a href="">2017年9月の日記</a>
+					</div>
 					<hr>
-					<a href="" class="date">2017年10月の日記</a>
+					<div class="date">
+						<a href="">2017年10月の日記</a>
+					</div>
 					<hr>
 				</div>
 			</div>
-			<div class="col-sm-10">
+			<div class="col-sm-9">
 				<div class="main-right">
 					<a href=""><h4>こんにちわ</h4></a>
 					<p>2017年8月10日</p>
