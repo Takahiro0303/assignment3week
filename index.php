@@ -1,9 +1,5 @@
 <?php 
-$dsn = 'mysql:dbname=assignment3week;host=localhost';
-$user = 'root';
-$password='';
-$dbh = new PDO($dsn, $user, $password);
-$dbh->query('SET NAMES utf8');
+require('dbconnct.php');
 
 date_default_timezone_set('Asia/Tokyo');
 
@@ -40,15 +36,15 @@ $record = $stmt->fetch(PDO::FETCH_ASSOC);
 						<?php } ?>
 					<hr>
 					<div class="date">
-						<a href="">2017年8月の日記</a>
+						<a href=""><?php echo date("Y年m月");?>の日記</a>
 					</div>
 					<hr>
 					<div class="date">
-						<a href="">2017年9月の日記</a>
+						<a href=""><?php echo date("Y年m月",strtotime('-1 month')); ?>の日記</a>
 					</div>
 					<hr>
 					<div class="date">
-						<a href="">2017年10月の日記</a>
+						<a href=""><?php echo date("Y年m月",strtotime('-2 month')); ?>の日記</a>
 					</div>
 					<hr>
 				</div>
