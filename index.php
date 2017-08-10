@@ -20,10 +20,10 @@ $record = $stmt->fetch(PDO::FETCH_ASSOC);
 	<title>Nexeed Training</title>
 </head>
 <body>
-<div class="container">
+<div class="container-Extralarge">
 	<div class="row">
-		<div class="col-sm-12"><h1 class="header">NxSeed Diary</h1></div>
-			<div class="col-sm-3">
+		<div class="col-sm-12 col-xs-12"><h1 class="header">NxSeed Diary</h1></div>
+			<div class="col-sm-3 col-xs-6">
 				<div class="main-left">
 						<?php
 						$time = intval(date('H'));
@@ -49,7 +49,7 @@ $record = $stmt->fetch(PDO::FETCH_ASSOC);
 					<hr>
 				</div>
 			</div>
-			<div class="col-sm-9">
+			<div class="col-sm-9 col-xs-6">
 				<div class="main-right">
 					<a href=""><h4>こんにちわ</h4></a>
 					<p>2017年8月10日</p>
@@ -75,7 +75,7 @@ $record = $stmt->fetch(PDO::FETCH_ASSOC);
 					<p>2017年8月10日</p>
 				</div>
 			</div>
-		<div class="col-sm-12">
+		<div class="col-sm-12 col-xs-12">
 			<div class="footer">Copyright NexSeed inc All Rights Reserved.</div>
 		</div>
 	</div>
