@@ -16,13 +16,13 @@ $record = $stmt->fetch(PDO::FETCH_ASSOC);
 <meta charset="utf-8">
 <link rel="stylesheet" href="assets/css/bootstrap.css">
 <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.css">
-<link rel="stylesheet" type="text/css" href="index.css">
+<link rel="stylesheet" type="text/css" href="assets/css/index.css">
 	<title>Nexeed Training</title>
 </head>
 <body>
 <div class="container-Extralarge">
 	<div class="row">
-		<div class="col-sm-12 col-xs-12"><h1 class="header">NxSeed Diary</h1></div>
+		<div class="col-sm-12 col-xs-12"><h1 class="header" style="margin: 0px 0px 10px 0px;height: 80px ; line-height: 80px;">NxSeed Diary</h></div>
 			<div class="col-sm-3 col-xs-6">
 				<div class="main-left">
 						<?php
