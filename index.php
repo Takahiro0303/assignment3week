@@ -72,11 +72,11 @@ $count = count($tweets);
 			</div>
 			<hr>
 			<div class="date">
-				<a href=""><?php echo date("Y年m月",strtotime('-1 month')); ?>の日記</a>
+				<a href=""><?php echo date("Y年m月",strtotime('-1 month'));?>の日記</a>
 			</div>
 			<hr>
 			<div class="date">
-				<a href=""><?php echo date("Y年m月",strtotime('-2 month')); ?>の日記</a>
+				<a href=""><?php echo date("Y年m月",strtotime('-2 month'));?>の日記</a>
 			</div>
 			<hr>
 				<div class="widget-area no-padding blank">
