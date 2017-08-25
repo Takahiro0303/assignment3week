@@ -8,12 +8,15 @@ $title = '';
 
 $errors = array();
 
+
+
 if (!empty($_POST)) {
 $title = $_POST['title'];
+v($title);
 	if ($title == '') {
 		$errors['title'] = 'blank';
 	}
-v($errors);
+
 	if (empty($errors)) {
 		// データーベース登録
 		$sql = 'INSERT INTO `diary` SET `title` =?, `created` =NOW()';
@@ -33,12 +36,14 @@ $stmt = $dbh->prepare($sql);
 $stmt->execute($data);
 
 
+
 $sql = 'SELECT * FROM `diary`';
 $stmt = $dbh->prepare($sql);
 $stmt->execute();
 while ($record = $stmt->fetch(PDO::FETCH_ASSOC)) {
 	$tweets[] = $record;
 }
+
 
 $count = count($tweets);
 
@@ -55,7 +60,31 @@ $count = count($tweets);
 <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.css">
 <link rel="stylesheet" type="text/css" href="assets/css/index.css">
 <link rel="stylesheet" href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css">
+<!-- <link rel="stylesheet" type="text/css" href="index.js"> -->
 <title>Nexeed Training</title>
+<script type="text/javascript"> 
+<!-- 
+
+function check(){
+
+	if(window.confirm('削除してよろしいですか？')){ // 確認ダイアログを表示
+		document.getElementById("frmC");
+		
+		return true; // 「OK」時は送信を実行
+
+	}
+	else{ // 「キャンセル」時の処理
+
+		window.alert('キャンセルされました'); // 警告ダイアログを表示
+		return false; // 送信を中止
+
+	}
+
+}
+
+// -->
+</script>
+
 </head>
 <body>
 
@@ -103,6 +132,7 @@ NxSeed Diary</h1>
 					</div><!-- Widget Area -->
 				</div>
 			</div>
+			<form action="#" method="POST" id="frmC">
 			<div class="col-xs-9">
 			<?php for ($i=0; $i < $count; $i++) { ?>
 
@@ -111,11 +141,11 @@ NxSeed Diary</h1>
 					<a href=""><h4><?php echo $tweets[$i]['title']; ?></h4></a>
 					<p><?php echo $tweets[$i]['created'];?></p>
 					<a href="index.php?id=<?php echo $tweets[$i]['id']; ?>
-					" class="btn btn-danger" >削除</a>
+					" class="btn btn-danger" onclick="check();return false;">削除</a>
 				</div>
-
 			<?php  } ?>
 			</div>
+			</form>
 		</div>
 	<div class="col-sm-12 col-xs-12">
 		<div class="footer">Copyright NexSeed inc All Rights Reserved.</div>
